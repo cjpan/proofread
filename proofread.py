@@ -65,6 +65,19 @@ for i in range(len(dict_1['concepts'])):
                     atom_1['answer']['text']:
                 sequence.append(atom_1['answer']['text'])
                 sequence.append(atom_2['answer']['text'])
+
+        elif atom_1['semantic_type'] == 'TextAtom':
+            if 'text' in atom_1 and atom_1['text']:
+                sequence.append(atom_1['text'])
+                sequence.append(atom_2['text'])
+
+        elif atom_1['semantic_type'] == 'ReflectAtom':
+            if 'question' in atom_1 and atom_1['question']:
+                sequence.append(atom_1['question']['text'])
+                sequence.append(atom_2['question']['text'])
+            if 'answer' in atom_1 and atom_1['answer']:
+                sequence.append(atom_1['answer']['text'])
+                sequence.append(atom_2['answer']['text'])
         else:
             pass
 
